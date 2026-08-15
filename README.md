@@ -6,9 +6,23 @@ The system also includes user roles, stock alerts, search and filtering, and pro
 
 ## Architecture
 
-The backend follows a **Layered Architecture**, separating responsibilities into:
+The backend follows a **Feature-Based Architecture**, organizing the application by business features instead of grouping all files by technical layer.
 
-```text id="u1m8qc"
+Each feature contains only the components it requires, such as controllers, services, repositories, entities, DTOs, and mappers.
+
+```text
+product/
+├── Product.java
+├── ProductController.java
+├── ProductService.java
+├── ProductRepository.java
+├── ProductMapper.java
+└── dto/
+```
+
+The typical request flow inside a feature is:
+
+```text
 Controller
     ↓
 Service
@@ -18,12 +32,7 @@ Repository
 Database
 ```
 
-* **Controller** — Handles HTTP requests and API responses.
-* **Service** — Contains the business logic and inventory rules.
-* **Repository** — Handles database access.
-* **Entity** — Represents the application's database entities.
-* **DTO** — Transfers data between the API and the application.
-* **Security** — Handles authentication and authorization.
+Shared application concerns such as authentication, configuration, and global exception handling are separated from the business features.
 
 ## Tech Stack
 
@@ -72,10 +81,36 @@ Database
 
 ## Project Structure
 
-```text id="mqsg8o"
+```text
 Inventory_SaaS/
+│
 ├── backend/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/inventorysaas/
+│   │   │   │       ├── product/
+│   │   │   │       ├── supplier/
+│   │   │   │       ├── category/
+│   │   │   │       ├── purchase/
+│   │   │   │       ├── inventory/
+│   │   │   │       ├── user/
+│   │   │   │       ├── auth/
+│   │   │   │       ├── config/
+│   │   │   │       └── exception/
+│   │   │   │
+│   │   │   └── resources/
+│   │   │       └── db/
+│   │   │           └── migration/
+│   │   │
+│   │   └── test/
+│   │
+│   ├── pom.xml
+│   └── Dockerfile
+│
 ├── frontend/
+│   └── Dockerfile
+│
 ├── docker-compose.yml
 └── README.md
 ```
