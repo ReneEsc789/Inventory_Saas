@@ -1,0 +1,85 @@
+# =========================
+# MAVEN
+# =========================
+
+target/
+backend/target/
+
+
+# =========================
+# CONFIGURACIÓN LOCAL
+# =========================
+
+backend/src/main/resources/application.properties
+
+# El example SÍ se sube
+!backend/src/main/resources/application.properties.example
+
+
+# =========================
+# VARIABLES DE ENTORNO
+# =========================
+
+.env
+.env.*
+!.env.example
+
+
+# =========================
+# VS CODE
+# =========================
+
+.vscode/
+**/.vscode/
+
+
+# =========================
+# INTELLIJ IDEA
+# =========================
+
+.idea/
+**/.idea/
+*.iws
+*.iml
+*.ipr
+
+
+# =========================
+# ECLIPSE / STS
+# =========================
+
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+
+# =========================
+# NETBEANS
+# =========================
+
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
+
+
+# =========================
+# LOGS
+# =========================
+
+*.log
+logs/
+
+
+# =========================
+# SISTEMA OPERATIVO
+# =========================
+
+.DS_Store
+Thumbs.db
